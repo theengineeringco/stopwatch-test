@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { ColorModeScript } from "@chakra-ui/react";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Providers } from "./providers";
+import { mono, sans } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={sans.variable}>
+      <body>
+        <ColorModeScript initialColorMode="dark" />
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
