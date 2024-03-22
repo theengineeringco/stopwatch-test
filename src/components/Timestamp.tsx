@@ -12,8 +12,6 @@ export default function Timestamp({ time = 0 }: StopwatchProps) {
       <Box>{format(time, "mm")}</Box>
       <Box fontFamily="body">:</Box>
       <Box>{format(time, "ss")}</Box>
-      <Box fontFamily="body">.</Box>
-      <Box>{format(time, "S")}</Box>
     </Flex>
   );
 }

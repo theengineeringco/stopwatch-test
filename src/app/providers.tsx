@@ -1,24 +1,21 @@
 "use client";
 
 import { mono, sans } from "@/styles/fonts";
-import { ChakraProvider, extendTheme, IconButton } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
   useSystemColorMode: true,
   initialColorMode: "dark",
   styles: {
-    // global: {
-    //   "html, body": {
-    //     background: "gray.900",
-    //     minHeight: "100vh",
-    //     color: "white",
-    //     padding: 0,
-    //     margin: 0,
-    //     boxSizing: "border-box",
-    //     fontFamily: sans.style.fontFamily,
-    //     fontSize: 16,
-    //   },
-    // },
+    global: {
+      "html, body": {
+        minHeight: "100vh",
+        padding: 0,
+        margin: 0,
+        boxSizing: "border-box",
+        fontSize: 16,
+      },
+    },
   },
   fonts: {
     mono: mono.style.fontFamily,

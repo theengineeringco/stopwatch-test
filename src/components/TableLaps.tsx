@@ -11,8 +11,9 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import Timestamp from "./Timestamp";
+import { memo } from "react";
 
-export default function TableLaps() {
+function TableLaps() {
   return (
     <Box>
       <TableContainer
@@ -45,3 +46,5 @@ export default function TableLaps() {
     </Box>
   );
 }
+
+export default memo(TableLaps);

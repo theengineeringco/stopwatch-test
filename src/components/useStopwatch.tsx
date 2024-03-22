@@ -1,53 +1,41 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback } from "react";
 
-export default function useStopwatch() {
-  const [time, setTime] = useState<number>(0);
-  const [running, setRunning] = useState<boolean>(false);
-  const startTime = useRef<number>(0);
-  const interval = useRef<null | ReturnType<typeof setTimeout>>(null);
-  const [laps, setLaps] = useState<number[]>([]);
+type useStopwatchReturn = {
+  start: () => void;
+  pause: () => void;
+  reset: () => void;
+  save: () => void;
+  running: boolean;
+  time: number;
+  laps: number[];
+};
 
+export default function useStopwatch(): useStopwatchReturn {
   const start = useCallback(() => {
-    setRunning(true);
-    startTime.current = Date.now() - time;
-
-    interval.current = setInterval(() => {
-      setTime(Date.now() - startTime.current);
-    }, 10);
-  }, [time]);
+    // TODO
+  }, []);
 
   const pause = useCallback(() => {
-    if (interval.current) clearInterval(interval.current);
-    setRunning(false);
+    // TODO
   }, []);
 
   const save = useCallback(() => {
-    setLaps((prev) => [...prev, time]);
-  }, [time]);
-
-  const reset = useCallback(() => {
-    if (interval.current) clearInterval(interval.current);
-    setTime(0);
-    setRunning(false);
-    startTime.current = 0;
+    // TODO
   }, []);
 
-  const toggle = useCallback(() => {
-    if (running) {
-      pause();
-    } else {
-      start();
-    }
-  }, [running, pause, start]);
+  const reset = useCallback(() => {
+    // TODO
+  }, []);
 
   return {
-    toggle,
+    start,
+    pause,
     reset,
-    running,
-    time,
+    running: false,
+    time: 0,
     save,
-    laps,
+    laps: [],
   };
 }
